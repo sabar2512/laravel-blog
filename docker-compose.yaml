@@ -1,0 +1,15 @@
+
+services:
+  laravel-blog:
+    container_name: app-laravel-blog
+    image: sabarsbb/laravel-blog
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - laravel-blog-data:/var/www/html/public
+
+volumes:
+  laravel-blog-data:
