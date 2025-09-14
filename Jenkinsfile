@@ -11,7 +11,7 @@ pipeline {
         stage('copy env variables') {
             steps {
                 sh '''
-                cp /usr/share/nginx/html/laravel-blog/.env
+                cp /usr/share/nginx/html/laravel-blog/.env .env
                 '''
             }
         }
