@@ -16,4 +16,4 @@ sonar.sources=.
 sonar.sourceEncoding=UTF-8
 
 # Exclusion Directory
-sonar.exclusions=Dockerfile
+sonar.exclusions=Dockerfile, tests/**, database/**
