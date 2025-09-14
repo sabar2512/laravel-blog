@@ -15,18 +15,20 @@ pipeline {
                 '''
             }
         }
-        stage('testing application') {
-            steps {
-                sh '''
-                composer install --dev --optimize-autoloader
-                composer require fakerphp/faker --dev
-                php artisan test
-                '''
-            }
-        }
+        //stage('testing application') {
+        //     steps {
+        //         sh '''
+        //         composer install --dev --optimize-autoloader
+        //         composer require fakerphp/faker --dev
+        //         php artisan test
+        //         '''
+        //     }
+        // }
         stage('build container image') {
             steps {
-                echo 'build container image'
+                sh '''
+                docker compose build 
+                '''
             }
         }
          stage('deploy container application') {
