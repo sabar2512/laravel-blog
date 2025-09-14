@@ -15,15 +15,17 @@ pipeline {
                 '''
             }
         }
-        //stage('testing application') {
-        //     steps {
-        //         sh '''
-        //         composer install --dev --optimize-autoloader
-        //         composer require fakerphp/faker --dev
-        //         php artisan test
-        //         '''
-        //     }
-        // }
+        stage('code quality analysis') {
+            steps {
+                sh '''
+                sonar-scanner \
+                -Dsonar.projectKey=laravel-blog \
+                -Dsonar.sources=. \
+                -Dsonar.host.url=http://172.23.5.32:9000 \
+                -Dsonar.token=sqp_320cc5f05301e15774f5186965f86887e8dd3471
+                '''
+            }
+        }
         stage('build container image') {
             steps {
                 sh '''
